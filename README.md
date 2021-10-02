@@ -11,7 +11,16 @@ We download VN Stocks Market data from free sources:
 
 Thanks these sources for providing data for us
 
+## Crypto Data
+
+We download Crypto data from
+
+* `bnb` https://data.binance.vision/?prefix=data/spot/daily/klines/
+
+Thanks Binance for providing data for us
+
 ## LICENSE
+
 MIT License
 
 Copyright (c) 2021 AIAICafe
