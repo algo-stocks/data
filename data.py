@@ -16,8 +16,10 @@ def set_source(src):
   Keyword arguments:
   src ({'bnb', 'CafeF', 'CafeF.Raw', 'cophieu68'}) -- Data source
   """
-  global source
-  source = src
+  if src != source:
+    global source, data
+    source = src
+    data = None
 
 
 def load_data():
