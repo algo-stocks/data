@@ -1,6 +1,6 @@
 import time
 import subprocess
-from IPython.core.display import display, Javascript
+from IPython.core.display import display, Javascript, clear_output
 
 try:
   from urllib import request
@@ -24,6 +24,7 @@ print(login)
 
 for _ in range(58):
   time.sleep(3)
+  print('.')
   try:
     res = request.urlopen(api)
     try:
@@ -35,3 +36,5 @@ for _ in range(58):
     break
   except:
     pass
+
+clear_output()
