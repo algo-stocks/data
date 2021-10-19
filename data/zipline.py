@@ -1,11 +1,34 @@
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-from google.colab import auth
-from oauth2client.client import GoogleCredentials
+import time
+from IPython.core.display import display, Javascript
 
-auth.authenticate_user()
-gauth = GoogleAuth()
-gauth.credentials = GoogleCredentials.get_application_default()
-drive = GoogleDrive(gauth)
+try:
+  from urllib import request
+except:
+  import urllib2 as request
 
-drive.CreateFile({'id': '1IJJeFUl1DPl50FvQsOlXQi6cpsXxNQwn'}).GetContentFile('zipline.sh')
+
+res = request.urlopen('https://auth.aicafe.cf/token')
+try:
+  token = res.read().decode()
+except:
+  token = res.read()
+
+api = 'https://auth.aicafe.cf/api?token='+token
+
+login = 'https://auth.aicafe.cf/login#url=https://sites.google.com/view/aicafe-database&token='+token
+display(Javascript('window.open("'+login+'")'))
+
+print('If popup does not open, please click to this link')
+print(login)
+
+for _ in range(58):
+  time.sleep(3)
+  try:
+    res = request.urlopen(api)
+    try:
+      open('zipline.sh', 'w').write(res.read().decode())
+    except:
+      open('zipline.sh', 'w').write(res.read())
+    break
+  except:
+    pass
