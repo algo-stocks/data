@@ -4,7 +4,9 @@ token = content(GET('https://auth.aicafe.cf/token'),"text")
 api = paste('https://auth.aicafe.cf/api?token=', token, sep='')
 login = paste('https://auth.aicafe.cf/login#url=https://sites.google.com/view/aicafe-database&token=', token, sep='')
 
-IRdisplay::display_javascript(paste('window.open("', login, '")', sep=''))
+expire = strtoi(substr(token, 0, gregexpr(pattern="\\.", token)[[1]][1]-1)) + 180
+
+IRdisplay::display_javascript(paste('Date.now()>',expire,'000 || window.open("', login, '")', sep=''))
 print('If popup does not open, please click to this link')
 print(login)
 
