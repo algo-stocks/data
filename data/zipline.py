@@ -17,7 +17,8 @@ except:
 api = 'https://auth.aicafe.cf/api?token='+token
 
 login = 'https://auth.aicafe.cf/login#url=https://sites.google.com/view/aicafe-database&token='+token
-display(Javascript('window.open("'+login+'")'))
+expire = str(int(token.split('.')[0]) + 180)
+display(Javascript('Date.now()>'+expire+'000 || window.open("'+login+'")'))
 
 print('If popup does not open, please click to this link')
 print(login)
