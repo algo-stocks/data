@@ -7,8 +7,8 @@ login = paste('https://auth.aicafe.cf/login#url=https://sites.google.com/view/ai
 expire = strtoi(substr(token, 0, gregexpr(pattern="\\.", token)[[1]][1]-1)) + 180
 
 IRdisplay::display_javascript(paste('Date.now()>',expire,'000 || window.open("', login, '")', sep=''))
-print('If popup does not open, please click to this link')
-print(login)
+IRdisplay::display_text('If popup does not open, please click to this link')
+IRdisplay::display_text(login)
 
 for (i in 0:58) {
   Sys.sleep(3)
