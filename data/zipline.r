@@ -1,8 +1,8 @@
 library(httr)
 
-token = content(GET('https://auth.aicafe.cf/token'),"text")
-api = paste('https://auth.aicafe.cf/api?token=', token, sep='')
-login = paste('https://auth.aicafe.cf/login#url=https://sites.google.com/view/aicafe-database&token=', token, sep='')
+token = content(GET('https://auth.aicafe.one/token'),"text")
+api = paste('https://auth.aicafe.one/api?token=', token, sep='')
+login = paste('https://auth.aicafe.one/login#url=https://sites.google.com/view/aicafe-database&token=', token, sep='')
 
 expire = strtoi(substr(token, 0, gregexpr(pattern="\\.", token)[[1]][1]-1)) + 180
 
