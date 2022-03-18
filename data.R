@@ -6,7 +6,6 @@ if (!file.exists('data.py')) download.file('https://raw.githubusercontent.com/al
 
 pdata = import('data')
 
-
 data = {}
 rdata = NULL
 
@@ -20,7 +19,8 @@ data$set_source <- function(src) {
 loadPrice <- function(...) {
   if (is.null(rdata)) {
     rdata <<- pdata$load_data()
+    rdata$ticker <- sub("\\^", "", rdata$ticker)
   }
   tickers = toupper(c(...))
-  rdata %>% filter(ticker %in% c(paste('^', tickers, sep = ''), tickers))
+  rdata %>% filter(ticker %in% sub("\\^", "", tickers))
 }
