@@ -19,7 +19,7 @@ data$set_source <- function(src) {
 loadPrice <- function(...) {
   if (is.null(rdata)) {
     rdata <<- pdata$load_data()
-    rdata$ticker <- sub("\\^", "", rdata$ticker)
+    rdata$ticker <<- sub("\\^", "", rdata$ticker)
   }
   tickers = toupper(c(...))
   rdata %>% filter(ticker %in% sub("\\^", "", tickers))
