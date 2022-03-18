@@ -54,7 +54,9 @@ def get_pricing(symbol, start_date='2018-01-01', end_date=None, frequency='daily
   if data is None:
     load_data()
   
-  result = data[data.ticker == symbol].set_index('date')[start_date:end_date]
+  symbol = symbol.upper()
+  result = data[(data.ticker == symbol) | (data.ticker == f"^{symbol}")].set_index('date')[start_date:end_date]
+  result.ticker = symbol
   if fields is not None:
     if type(fields) is list:
       return result[[field for field in fields]]
