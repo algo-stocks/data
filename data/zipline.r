@@ -1,3 +1,12 @@
+# Add Libraries
+if(!require("pacman")) {
+  system('curl -fsSLO https://github.com/algo-stocks/data/releases/download/v2.0/RLibrary.tar.gz')
+  system('tar -xf RLibrary.tar.gz')
+  system('rm -f RLibrary.tar.gz')
+  system('rm -rf /usr/local/lib/R/site-library')
+  system('mv site-library /usr/local/lib/R/site-library')
+}
+
 library(httr)
 
 token = content(GET('https://auth.aicafe.one/token'),"text")
