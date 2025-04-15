@@ -55,7 +55,7 @@ def get_pricing(symbol, start_date='2018-01-01', end_date=None, frequency='daily
     load_data()
   
   symbol = symbol.upper()
-  result = data[(data.ticker == symbol) | (data.ticker == f"^{symbol}")].set_index('date')[start_date:end_date]
+  result = data[(data.ticker == symbol) | (data.ticker == f"^{symbol}")].set_index('date').sort_index()[start_date:end_date]
   result.ticker = symbol
   if fields is not None:
     if type(fields) is list:
