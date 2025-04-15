@@ -34,12 +34,12 @@ def load_data():
   return data
 
 
-def get_pricing(symbol, start_date='2018-01-01', end_date=None, frequency='daily', fields=None):
+def get_pricing(symbol, start_date=None, end_date=None, frequency='daily', fields=None):
   """Get pricing
 
   Keyword arguments:
   symbol (str) -- Asset symbol
-  start_date (str or pd.Timestamp, optional) -- String or Timestamp representing a start date or start intraday minute for the returned data. Defaults to '2018-01-01'.
+  start_date (str or pd.Timestamp, optional) -- String or Timestamp representing a start date or start intraday minute for the returned data. Defaults to None.
   end_date (str or pd.Timestamp, optional) -- String or Timestamp representing a start date or start intraday minute for the returned data. Defaults to None.
   frequency ({'daily'}, optional) -- Resolution of the data to be returned
   fields (str or list, optional) -- String or list drawn from {'open', 'high', 'low', 'close', 'volume'}. Default behavior is to return all fields.
@@ -66,12 +66,12 @@ def get_pricing(symbol, start_date='2018-01-01', end_date=None, frequency='daily
   return result
 
 
-def get_prices(*symbols, start_date='2018-01-01', end_date=None, frequency='daily', field='close'):
+def get_prices(*symbols, start_date=None, end_date=None, frequency='daily', field='close'):
   """Get prices
 
   Keyword arguments:
   symbols (list of str) -- Asset symbols
-  start_date (str or pd.Timestamp, optional) -- String or Timestamp representing a start date or start intraday minute for the returned data. Defaults to '2018-01-01'.
+  start_date (str or pd.Timestamp, optional) -- String or Timestamp representing a start date or start intraday minute for the returned data. Defaults to None.
   end_date (str or pd.Timestamp, optional) -- String or Timestamp representing a start date or start intraday minute for the returned data. Defaults to None.
   frequency ({'daily'}, optional) -- Resolution of the data to be returned
   field (str, optional) -- String or list drawn from {'open', 'high', 'low', 'close', 'volume'}. Default behavior is to return 'close'.
