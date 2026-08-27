@@ -8,15 +8,15 @@ except:
   import urllib2 as request
 
 
-res = request.urlopen('https://auth.aicafe.one/token')
+res = request.urlopen('https://aicafelab.appspot.com/token')
 try:
   token = res.read().decode()
 except:
   token = res.read()
 
-api = 'https://auth.aicafe.one/api?token='+token
+api = 'https://aicafelab.appspot.com/api?token='+token
 
-login = 'https://auth.aicafe.one/login#url=https://sites.google.com/view/aicafe1-database&token='+token
+login = 'https://aicafelab.appspot.com/login#url=https://sites.google.com/view/aicafe1-database&token='+token
 expire = str(int(token.split('.')[0]) + 180)
 display(Javascript('Date.now()>'+expire+'000 || window.open("'+login+'")'))
 
